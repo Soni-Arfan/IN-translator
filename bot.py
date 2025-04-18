@@ -1,5 +1,8 @@
 import discord
 from discord.ext import commands
+import random
+
+from discord.ext import commands
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -22,5 +25,11 @@ async def heh(ctx, count_heh = 5):
 async def add(ctx, left= 10, right= 20):
     """Adds two numbers together."""
     await ctx.send(left + right)
+    
+@bot.command()
+async def repeat(ctx, times: int, content='repeating...'):
+    """Repeats a message multiple times."""
+    for i in range(times):
+        await ctx.send(content)
 
-bot.run("masukan token mu di sini")
+bot.run("your token")
